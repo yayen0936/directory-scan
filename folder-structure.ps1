@@ -16,7 +16,7 @@ if (-not (Test-Path -Path $OutputFolder)) {
 
 # Get the top folder name
 $RootItem = Get-Item -Path $InputPath
-$TopFolder = $RootItem.Name
+$RootFolder = $RootItem.Name
 
 $Results = @()
 
@@ -36,7 +36,7 @@ foreach ($Folder in $Folders) {
 
     # Only keep up to Level 6 columns
     $Results += [PSCustomObject]@{
-        'Top Folder'      = $TopFolder
+        'Top Folder'      = $RootFolder
         'Level 2 folders' = if ($Parts.Count -ge 1) { $Parts[0] } else { '' }
         'Level 3 folders' = if ($Parts.Count -ge 2) { $Parts[1] } else { '' }
         'Level 4 folders' = if ($Parts.Count -ge 3) { $Parts[2] } else { '' }
